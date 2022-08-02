@@ -5,10 +5,10 @@ const pallets = document.getElementsByClassName('color');
 
 // Ao carregar gera cores aleatorias para a paleta de cores e fixa a cor preta como primeira opcao. Referencia = https://css-tricks.com/snippets/javascript/random-hex-color/ //
 
-window.onload = function changepallets() {
+window.onload = function changePallets() {
   pallets[0].style.backgroundColor = 'black';
-  for (let i = 1; i < pallets.length; i += 1) {
-    pallets[i].style.backgroundColor = `#${Math.floor(
+  for (let index = 1; index < pallets.length; index += 1) {
+    pallets[index].style.backgroundColor = `#${Math.floor(
       Math.random() * 16777000
     ).toString(16)}`;
   }
@@ -50,8 +50,8 @@ function selectColor(event) {
 }
 function changeColor() {
   pallets[0].className = 'color selected';
-  for (let i = 0; i < pallets.length; i += 1) {
-    pallets[i].addEventListener('click', selectColor);
+  for (let index = 0; index < pallets.length; index += 1) {
+    pallets[index].addEventListener('click', selectColor);
   }
 }
 changeColor();
