@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap') ;
+
+body {
+  background-color: #788287d0;
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+}
+
 .color {
   border: 1px solid black;
   display: inline-block;
   width: 40px;
   height: 40px;
-  border-radius: 25%;
+  border-radius: 100%;
+  margin: auto;
+  margin-top: 15px;
 }
 
 .pixel {
@@ -15,6 +25,18 @@
 }
 
 .lines {
-  margin: -5px 0;
   display: block;
+  margin-left: -3%;
+}
+
+#title {
+  border: 5px solid transparent;
+  background-color: black;
+  border-image: linear-gradient(45deg, purple, blue, green, yellow, orange, red);
+  border-image-slice: 1;
+  color: whitesmoke;
+  height: 80px;
+  width: 523px;
+  font-size: 64px;
+  margin: auto;
 }
