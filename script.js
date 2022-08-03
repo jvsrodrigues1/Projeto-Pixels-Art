@@ -4,7 +4,7 @@ const pixels = document.getElementsByClassName('pixel');
 const pallets = document.getElementsByClassName('color');
 const button = document.getElementById('generate-board');
 const bordS = document.getElementById('board-size');
-const cleaner = document.getElementById('clear-board');
+const cleanGrid = document.getElementById('clear-board');
 
 // Ao carregar gera cores aleatorias para a paleta de cores e fixa a cor preta como primeira opcao. Referencia = https://css-tricks.com/snippets/javascript/random-hex-color/ //
 
@@ -99,4 +99,4 @@ function cleanBoard() {
     pixels[index].style.backgroundColor = 'white';
   }
 }
-cleaner.addEventListener('click', cleanBoard);
+cleanGrid.addEventListener('click', cleanBoard);
