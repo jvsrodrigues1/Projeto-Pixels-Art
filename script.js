@@ -2,6 +2,9 @@ const board = document.getElementById('pixel-board');
 const linhas = document.getElementsByClassName('lines');
 const pixels = document.getElementsByClassName('pixel');
 const pallets = document.getElementsByClassName('color');
+const button = document.getElementById('generate-board');
+const bordS = document.getElementById('board-size');
+const cleaner = document.getElementById('clear-board');
 
 // Ao carregar gera cores aleatorias para a paleta de cores e fixa a cor preta como primeira opcao. Referencia = https://css-tricks.com/snippets/javascript/random-hex-color/ //
 
@@ -68,3 +71,32 @@ function paintGrid() {
   }
 }
 paintGrid();
+
+// funcao dinamicBoard para deixar o board dinamico e receber o tamanho atraves do botao input, adiciona alerta para input vazio //
+
+function dinamicBoard() {
+  if (bordS.value === '') {
+    alert('Board inválido!');
+  }
+  if (parseInt(bordS.value, 10) > 50) {
+    gridValue = 50;
+  } else if (parseInt(bordS.value, 10) < 5) {
+    gridValue = 5;
+  } else {
+    gridValue = parseInt(bordS.value, 10);
+  }
+  board.innerHTML = '';
+  makeLines();
+  makePixels();
+  paintGrid();
+}
+button.addEventListener('click', dinamicBoard);
+
+// adicona funcao para limpar o board //
+
+function cleanBoard() {
+  for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].style.backgroundColor = 'white';
+  }
+}
+cleaner.addEventListener('click', cleanBoard);
