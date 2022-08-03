@@ -16,10 +16,10 @@ window.onload = function changePallets() {
 
 // funcao makelines e makepixels responsavel por gerar o grid de pintura 5x5 //
 
-let gridSize = 5;
+let gridValue = 5;
 
 function makeLines() {
-  for (index = 0; index < gridSize; index += 1) {
+  for (let index = 0; index < gridValue; index += 1) {
     const line = document.createElement('li');
     line.className = 'lines';
     board.appendChild(line);
@@ -28,8 +28,8 @@ function makeLines() {
 makeLines();
 
 function makePixels() {
-  for (let index = 0; index < gridSize; index += 1) {
-    for (let index2 = 0; index2 < gridSize; index2 += 1) {
+  for (let index = 0; index < gridValue; index += 1) {
+    for (let index2 = 0; index2 < gridValue; index2 += 1) {
       const pixel = document.createElement('div');
       pixel.className = 'pixel';
       linhas[index].appendChild(pixel);
@@ -43,7 +43,7 @@ makePixels();
 sessionStorage.setItem('cor', 'black');
 function selectColor(event) {
   sessionStorage.setItem('cor', event.target.style.backgroundColor);
-  for (index in pallets) {
+  for (let index = 0; index < pallets.length; index += 1) {
     pallets[index].classList.remove('selected');
   }
   event.target.classList.add('selected');
@@ -55,3 +55,16 @@ function changeColor() {
   }
 }
 changeColor();
+
+// funcao getColor e paintGrid para pintar o grid com as cores armazenadas, evento target referencia = aula da tamara postada no slack obrigado tamara S2! //
+
+function getColor(event) {
+  const alvo = event.target;
+  alvo.style.backgroundColor = sessionStorage.getItem('cor');
+}
+function paintGrid() {
+  for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].addEventListener('click', getColor);
+  }
+}
+paintGrid();
