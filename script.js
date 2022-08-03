@@ -12,7 +12,7 @@ window.onload = function changePallets() {
   pallets[0].style.backgroundColor = 'black';
   for (let index = 1; index < pallets.length; index += 1) {
     pallets[index].style.backgroundColor = `#${Math.floor(
-      Math.random() * 16777000
+      Math.random() * 16777000,
     ).toString(16)}`;
   }
 };
